@@ -21,9 +21,9 @@ export default function Testimonials() {
             <Image
               width={48}
               height={48}
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" 
-              className="rounded-full h-12 w-12 object-cover shrink-0" 
-              alt="user image" 
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+              className="rounded-full h-12 w-12 object-cover shrink-0"
+              alt="user image"
             />
             <div>
               <h4 className="text-white font-bold text-sm">Sarah Jenkins</h4>
@@ -37,12 +37,12 @@ export default function Testimonials() {
             "As an attendee, I appreciate the modern, clean interface. Searching and filtering by category or location works instantly, and my dashboard keeps all my ticket barcodes and payment history perfectly organized."
           </p>
           <div className="flex items-center gap-4">
-            <Image 
-              width={48} 
-              height={48} 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" 
-              className="rounded-full w-12 h-12 object-cover shrink-0" 
-              alt="user image" 
+            <Image
+              width={48}
+              height={48}
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+              className="rounded-full w-12 h-12 object-cover shrink-0"
+              alt="user image"
             />
             <div>
               <h4 className="text-white font-bold text-sm">Marcus Brody</h4>
