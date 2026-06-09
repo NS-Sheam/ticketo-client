@@ -9,7 +9,7 @@ import { baseURL } from "@/lib/api/baseUrl";
 import BookingWidget from "@/components/BookingWidget";
 
 const fetchEvent = async (id) => {
-    const res = await fetch(`${baseURL}/api/events/${id}`);
+    const res = await fetch(`${baseURL}/api/single-events/${id}`);
     const data = await res.json();
     return data;
 }
