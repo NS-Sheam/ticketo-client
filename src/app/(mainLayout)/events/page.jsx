@@ -1,20 +1,38 @@
 
-import Link from "next/link";
+
 import { Suspense } from "react";
-import { Card, Button } from "@heroui/react";
+import { Card } from "@heroui/react";
 import FilterPanel from "@/components/FilterPanel";
 import EventCard from "@/components/EventCard";
-import { baseURL } from "@/lib/api/baseUrl";
+import { fetchEvents } from "@/lib/api/events/data";
 
-const fetchEvents = async () => {
-    const res = await fetch(`${baseURL}/api/events`);
-    const data = await res.json();
-    return data;
-}
+// ?search=mern&category=music
+export default async function BrowseEventsPage({ searchParams }) {
+    const sParams = await searchParams;
+    // console.log(sParams);
+    const search = sParams.search || "";
+    const category = sParams.category || "";
+    const location = sParams.location || "";
+    // console.log(search, category, location);
+    const params = new URLSearchParams();
+    if (search) {
+        params.set("search", search);
+    }
+    if (category) {
+        params.set("category", category);
+    }
+    if (location) {
+        params.set("location", location);
+    }
+    // console.log(params.toString());
+
+    const events = await fetchEvents(params);
 
 
-export default async function BrowseEventsPage() {
-    const events = await fetchEvents();
+
+
+
+
     return (
         <div className="min-h-screen py-16 px-6 max-w-7xl mx-auto w-full space-y-12">
             {/* HEADER */}

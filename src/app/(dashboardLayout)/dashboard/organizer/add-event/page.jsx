@@ -73,6 +73,8 @@ const AddEventPage = () => {
         if (result.insertedId) {
             toast.success("Event added successfully...")
             redirect("/events")
+        } else {
+            toast.error(result.message || "Event not created...")
         }
 
 
