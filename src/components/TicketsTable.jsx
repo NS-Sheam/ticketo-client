@@ -11,27 +11,8 @@ import {
   Chip
 } from "@heroui/react";
 
-const TicketsTable = () => {
-  const tickets = [
-    {
-      _id: "t1",
-      eventId: "1",
-      eventTitle: "Global Tech Summit 2026",
-      bookingDate: "2026-06-03T10:00:00Z",
-      quantity: 2,
-      amount: 298.00,
-      paymentStatus: "paid"
-    },
-    {
-      _id: "t2",
-      eventId: "2",
-      eventTitle: "Symphony Under the Stars",
-      bookingDate: "2026-05-15T14:30:00Z",
-      quantity: 1,
-      amount: 45.00,
-      paymentStatus: "paid"
-    }
-  ];
+const TicketsTable = ({ tickets }) => {
+  // console.log(tickets);
 
   return (
     <Card className="border border-white/5 bg-slate-900/40 backdrop-blur-xl shadow-2xl p-6 rounded-2xl">
@@ -49,13 +30,13 @@ const TicketsTable = () => {
               {tickets.map((ticket) => (
                 <TableRow key={ticket._id} className="border-b border-white/5 hover:bg-white/5 transition-colors duration-150 last:border-b-0">
                   <TableCell className="py-4 px-6 align-middle font-bold text-white">
-                    <Link href={`/events/${ticket.eventId}`} className="hover:text-pink-500 hover:underline">
+                    <Link href={`/events/${ticket.evetId}`} className="hover:text-pink-500 hover:underline">
                       {ticket.eventTitle}
                     </Link>
                   </TableCell>
                   <TableCell className="py-4 px-6 align-middle text-slate-300 font-medium">{new Date(ticket.bookingDate).toLocaleDateString()}</TableCell>
                   <TableCell className="py-4 px-6 align-middle text-slate-300 font-medium">{ticket.quantity} ticket(s)</TableCell>
-                  <TableCell className="py-4 px-6 align-middle font-semibold text-green-400">${ticket.amount?.toFixed(2)}</TableCell>
+                  <TableCell className="py-4 px-6 align-middle font-semibold text-green-400">${Number(ticket.amount)?.toFixed(2)}</TableCell>
                   <TableCell className="py-4 px-6 align-middle">
                     <Chip
                       size="sm"
