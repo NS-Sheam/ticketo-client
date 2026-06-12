@@ -1,40 +1,14 @@
-"use client";
 
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
 import EventCard from "./EventCard";
+import { fetchFeaturedEvents } from "@/lib/api/events/data";
 
-const MOCK_EVENTS = [
-  {
-    _id: "1",
-    title: "Global Tech Summit 2026",
-    category: "Technology",
-    banner: "https://images.unsplash.com/photo-1540575467063-178a50c2df87",
-    date: "November 12, 2026",
-    location: "San Francisco, CA",
-    ticketPrice: 149.00
-  },
-  {
-    _id: "2",
-    title: "Symphony Under the Stars",
-    category: "Music",
-    banner: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6",
-    date: "December 05, 2026",
-    location: "Central Park, NY",
-    ticketPrice: 45.00
-  },
-  {
-    _id: "3",
-    title: "Culinary Arts & Wine Expo",
-    category: "Food & Drink",
-    banner: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3",
-    date: "January 18, 2027",
-    location: "Napa Valley, CA",
-    ticketPrice: 85.00
-  }
-];
 
-export default function FeaturedEvents({ featuredEvents = MOCK_EVENTS }) {
+
+
+export default async function FeaturedEvents() {
+  const featuredEvents = await fetchFeaturedEvents()
   const events = featuredEvents && featuredEvents.length > 0 ? featuredEvents : MOCK_EVENTS;
   return (
     <section className="py-24 max-w-7xl mx-auto px-6 w-full">

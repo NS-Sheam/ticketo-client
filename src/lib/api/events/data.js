@@ -13,3 +13,8 @@ export const fetchEvents = async (query) => {
 
   return result;
 };
+export const fetchFeaturedEvents = async () => {
+  const result = await serverFetch(`/api/events/featured`);
+
+  return result;
+};
